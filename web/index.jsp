@@ -24,9 +24,12 @@
   <body>
     <form action="login" method="post">
       <table >
+        <caption>
+          <span class="error"><%=request.getAttribute("msg") != null ?request.getAttribute("msg"):"" %></span>
+        </caption>
         <tr>
           <td>name</td>
-          <td><input type="text" name="username"/>
+          <td><input type="text" name="username" value="<%=StringUtils.getName(request,"username")%>"/>
             <span ><%=StringUtils.getInfo(request,"username") %></span>
           </td>
         </tr>

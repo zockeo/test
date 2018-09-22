@@ -63,6 +63,7 @@ public class login extends HttpServlet {
             if(b){
                 response.sendRedirect("checkin.do");
             } else {
+                request.setAttribute("msg","Login failed! .. pls re try ~");
                 request.getRequestDispatcher("index.jsp").forward(request,response);
             }
 

@@ -25,4 +25,12 @@ public class StringUtils {
         }
         return "";
     }
+
+    public static String getName(HttpServletRequest request,String str) {
+        String name = request.getParameter(str);
+        if(name!=null)
+            return name;
+        return "";
+    }
+
 }
