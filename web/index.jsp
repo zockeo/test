@@ -1,4 +1,6 @@
-<%@ page import="src.util.StringUtils" %><%--
+<%@ page import="src.util.StringUtils" %>
+
+<%--
   Created by IntelliJ IDEA.
   User: z
   Date: 2018/8/30
@@ -10,7 +12,8 @@
   <head>
     <title>web test</title>
 
-    <script type="text/javascript" src="/jslib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/jslib/jquery.min.js"></script>
+    <script type="text/javascript" src="/jslib/jquery.validate.js"></script>
     <script type="text/javascript">
         $(function () {
             $('#cde').attr('src','code?s='+Math.random());
@@ -18,11 +21,24 @@
                 $('#cde').attr('src','code?p='+Math.random());
             });
 
+            $('#frm').validate({
+                rules:{
+                    username:{ required: true ,rangelength:[6,20]},
+                    password:{ required: true ,rangelength:[6,20]},
+                    code:{ required: true ,rangelength:[6,6]}
+                },
+                messages:{
+                    username:{required:'needed!',rangelength:'need 6-20 char'},
+                    password:{required:'needed!',rangelength:'need 6-20 char'},
+                    code:{required:'needed!',rangelength:'need 6 char'}
+                }
+            });
+
         });
     </script>
   </head>
   <body>
-    <form action="login" method="post">
+    <form action="login" method="post" id="frm">
       <table >
         <caption>
           <span class="error"><%=request.getAttribute("msg") != null ?request.getAttribute("msg"):"" %></span>
@@ -48,8 +64,6 @@
         <tr>
           <td><img id="cde"></td>
           <td>click pic to refresh</td>
-          <%--<td><img src="/code"></td>--%>
-          <%--<td>click pic to refresh</td>--%>
         </tr>
         <tr>
           <td><input type="submit" value="login"/> </td>
