@@ -61,7 +61,7 @@ public class login extends HttpServlet {
 
             //根据返回结果决定跳转页面
             if(b){
-                response.sendRedirect("checkin.do");
+                response.sendRedirect("user");
             } else {
                 request.setAttribute("msg","Login failed! .. pls re try ~");
                 request.getRequestDispatcher("index.jsp").forward(request,response);
@@ -73,6 +73,6 @@ public class login extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 }

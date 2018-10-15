@@ -36,6 +36,10 @@
 
         });
     </script>
+
+    <style>
+      .error{color: darkorange}
+    </style>
   </head>
   <body>
     <form action="login" method="post" id="frm">

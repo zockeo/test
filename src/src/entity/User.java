@@ -6,10 +6,17 @@ package src.entity;
 public class User {
 
     private int id;
-    private String username ;
+    private String username;
     private String password;
+    private Role role = new Role();
 
-    public User(){};
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public int getId() {
         return id;

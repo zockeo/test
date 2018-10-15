@@ -30,6 +30,17 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <servlet-class>servlet.user</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
     <!--<welcome-file-list>-->
         <!--<welcome-file>index.jsp</welcome-file>-->
     <!--</welcome-file-list>-->
